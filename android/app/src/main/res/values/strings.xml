@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ewyzly</string>
+    <string name="title_activity_main">ewyzly</string>
+    <string name="package_name">ionic.ewyzly</string>
+    <string name="custom_url_scheme">ionic.ewyzly</string>
+</resources>
