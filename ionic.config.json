@@ -1,7 +1,0 @@
-{
-  "name": "ewyzly",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular-standalone"
-}
