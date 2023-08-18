@@ -1,0 +1,20 @@
+ion-title {
+  text-decoration: underline;
+}
+
+.title-section {
+  h2 {
+      font-weight: bold;
+      text-align: center;
+  }
+  p {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;  // You can adjust this for more spacing
+  }
+}
+
+.chart-section {
+  margin-top: 20px;  // Adjust as needed
+  // Other chart-specific styles go here
+}

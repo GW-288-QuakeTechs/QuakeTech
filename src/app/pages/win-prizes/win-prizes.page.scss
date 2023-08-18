@@ -1,0 +1,43 @@
+.main-container {
+  padding: 20px; /* or whatever padding you prefer */
+  /* Add any other styles you want for the container here */
+}
+
+ion-header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding: 80px;
+}
+
+ion-toolbar {
+  padding: 10px;
+}
+
+ion-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+ion-text {
+
+  padding: 10px;
+}
+
+ion-img {
+  margin: 10px 0;
+  width: 85%; /* Adjust to the desired size. This example makes the image 70% of its original size. */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Needed for centering */
+  margin-left: auto; /* Center the image */
+  margin-right: auto; /* Center the image */
+  padding: 10px;
+}
+
+.centered-buttons ion-button {
+    font-size: 15px; /* Increase font size, adjust as needed */
+ 
+}
+
+

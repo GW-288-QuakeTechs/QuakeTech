@@ -14,7 +14,15 @@ const routes: Routes = [
   {
     path: 'win-prizes',
     loadChildren: () => import('./pages/win-prizes/win-prizes.module').then( m => m.WinPrizesPageModule)
+  },  {
+    path: 'stop-ads',
+    loadChildren: () => import('./pages/stop-ads/stop-ads.module').then( m => m.StopAdsPageModule)
+  },
+  {
+    path: 'shop',
+    loadChildren: () => import('./pages/shop/shop.module').then( m => m.ShopPageModule)
   }
+
 ];
 
 @NgModule({

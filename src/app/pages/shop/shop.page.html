@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Select Store</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<!-- ... Rest of your content ... -->
+
+
+<ion-content class="ion-padding">
+
+  <div class="container">
+    <ion-item>
+    <ion-label>Store</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option>Amazon</ion-select-option>
+      <ion-select-option>eBay</ion-select-option>
+      <ion-select-option>Walmart</ion-select-option>
+      <ion-select-option>Target</ion-select-option>
+  </ion-select>
+  
+  
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Payment Mode</ion-label>
+    <ion-select interface="popover">
+      <ion-select-option>Game play with virtual money</ion-select-option>
+      <ion-select-option>Live. Use real dollars</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+  <!-- Adding the Next button -->
+  <ion-button expand="full" color="primary">Next</ion-button>
+  
+</ion-content>
