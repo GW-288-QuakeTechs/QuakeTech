@@ -1,7 +1,7 @@
 <ion-menu side="end" contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">This is the menu content.</ion-content>
@@ -9,14 +9,36 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Set Investment Goals </ion-title>
       <ion-buttons slot="end">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <h1>Testing</h1>
-
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-label>Set up to 5 Investment Goals</ion-label>
+        <ion-icon name="help-circle-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-select label="I'm investing for:" placeholder="" interface="popover">
+          <ion-select-option value="apple">Apple</ion-select-option>
+          <ion-select-option value="banana">Banana</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-input label="Investing goal:" value="$"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select label="Time to achieve goal" placeholder="" interface="popover">
+          <ion-select-option value="apple">Apple</ion-select-option>
+          <ion-select-option value="banana">Banana</ion-select-option>
+          <ion-select-option value="orange">Orange</ion-select-option>
+          <h1> Testing</h1>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </div>
