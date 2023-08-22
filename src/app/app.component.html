@@ -1,4 +1,14 @@
 <ion-app>
+  <!--
+  Here is a note for you guys, you all might have some confusions regarding the angular structure like me.
+  So for anyone who already familiar with React, Next or Django frameworks, basically Angular's inheritance
+  is the same. For example, as you guys can we the <ion-app> will be shared among the sub-pages,
+  that is the reason why that we don't really need to re-declare it everytime initialize new child page. 
+  For any implementation, we just need to override it ! Give it a test by trying to declarce <ion-menu-button>.
+  It will automatically refers to the menu content below. 
+  Hope this can help !
+  -->
+
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" side="end" type="overlay" >
       <ion-content>
