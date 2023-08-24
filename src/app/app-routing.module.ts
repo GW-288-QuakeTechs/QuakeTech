@@ -19,7 +19,12 @@ const routes: Routes = [
     path: 'investment',
     loadChildren: () => import('./pages/investment/investment.module').then( m => m.InvestmentPageModule )
 
-  }
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule )
+
+  },
 ];
 
 @NgModule({
