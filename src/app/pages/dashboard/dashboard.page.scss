@@ -1,0 +1,42 @@
+ion-select::part(text) {
+  color: #3dc2ff;
+}
+
+ion-content::part(background){
+  background: white;
+}
+ion-list{
+  background: white;
+}
+
+ion-item::part(native){
+  background-color: white;
+}
+
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h{
+  color: black;
+}
+
+ion-icon {
+  font-size: 45px;
+  color: green;
+}
+
+ion-grid{
+  color: black;
+}
+
+ion-label{
+  color: black;
+}
+
+h6{
+  font-weight: bold;
+  color: black;
+}
+
+#label {
+    font-weight: bold;
+
+}
+
