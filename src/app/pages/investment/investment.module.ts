@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { InvestmentPageRoutingModule } from './investment-routing.module';
 
 import { InvestmentPage } from './investment.page';
+import { CurrencyPipe  } from '@angular/common';
 
 @NgModule({
   imports: [
@@ -14,7 +15,10 @@ import { InvestmentPage } from './investment.page';
     FormsModule,
     IonicModule,
     InvestmentPageRoutingModule,
+
+
   ],
-  declarations: [InvestmentPage]
+  declarations: [InvestmentPage],
+  providers: [CurrencyPipe],
 })
 export class InvestmentPageModule {}
