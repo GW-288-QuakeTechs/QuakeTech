@@ -8,6 +8,7 @@ import { InvestmentPageRoutingModule } from './investment-routing.module';
 
 import { InvestmentPage } from './investment.page';
 import { CurrencyPipe  } from '@angular/common';
+import { Camera} from '@awesome-cordova-plugins/camera/ngx';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { CurrencyPipe  } from '@angular/common';
 
   ],
   declarations: [InvestmentPage],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe,Camera],
 })
 export class InvestmentPageModule {}

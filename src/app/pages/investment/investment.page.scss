@@ -1,9 +1,22 @@
 ion-select::part(text) {
-  color: #3dc2ff; /* Your desired color */
+  color: #3dc2ff;
 }
+
+
+::ng-deep .input-wrapper.sc-ion-input-ios input.sc-ion-input-ios {
+  color: #3dc2ff;
+  text-align: right;
+}
+
 
 #label {
     font-weight: bold;
 
+}
+
+.button-container {
+  display: flex;
+  justify-content: end;
+  padding: 18px; /* Adjust padding as needed */
 }
 

@@ -27,10 +27,7 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="$" [(ngModel)]="moneyValue" label="Investing goal: "
-          (input)="formatMoneyInput()"     class="custom-input">
-
-
+        <ion-input type="text" [(ngModel)]="moneyValue" label="Investing goal: " (input)="formatMoneyInput()" class="custom-input">
         </ion-input>
       </ion-item>
       <ion-item>
@@ -50,6 +47,11 @@
       </ion-item>
     </ion-list>
     <ion-list>
+      <div class="button-container">
+        <ion-button slot="end" (click)="chooseFromGallery()">Choose from Gallery</ion-button>
+        <ion-img [src]="selectedImage"></ion-img>
+      </div>
+      <br />
       <ion-item>
         <ion-label> Investment Goals</ion-label>
         <ion-button type="button" (click)="getInput(investPurpose.value,period.value)">Save</ion-button>
