@@ -9,12 +9,23 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
   },
   {
     path: 'win-prizes',
     loadChildren: () => import('./pages/win-prizes/win-prizes.module').then( m => m.WinPrizesPageModule)
-  },  {
+  },
+  {
+    path: 'investment',
+    loadChildren: () => import('./pages/investment/investment.module').then( m => m.InvestmentPageModule )
+
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule )
+
+  },
+  {
     path: 'stop-ads',
     loadChildren: () => import('./pages/stop-ads/stop-ads.module').then( m => m.StopAdsPageModule)
   },
@@ -22,7 +33,6 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () => import('./pages/shop/shop.module').then( m => m.ShopPageModule)
   }
-
 ];
 
 @NgModule({
