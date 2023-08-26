@@ -1,29 +1,72 @@
-<ion-content [fullscreen]="true">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Plan 2: Stop Ads</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
+<ion-content [fullscreen]="true" class="ion-padding">
   <div class="main-container">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Plan 2: Stop Ads</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    
-    <ion-content class="ion-padding">
-    
-      <div class="title-section">
-        <h2>STOP ADS</h2>
-        <p>and get 2 reward points with every virtual dollar that you purchase</p>
-      </div>
-    
 
-   
-      <!-- Placeholder for chart -->
-      <div class="chart-section">
-        <!-- Your chart will be inserted here -->
+
+<h2 class="custom-title-center">
+  STOP ADS and get 2 reward points with every virtual dollar that you purchase
+</h2>
+
+
+<h2 class="custom-title-left">
+  Scroll over the chart to select the option you want
+</h2>
+
+
+    <!-- Chart/Table -->
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+
+      <ion-row class="table-header">
+        <ion-col>Add $$ to my virtual checking account</ion-col>
+        <ion-col>My Cost</ion-col>
+        <ion-col>My New Checking Account Balance</ion-col>
+        <ion-col>My New Reward Point Balance</ion-col>
+    </ion-row>
+
+      <!-- Data Rows -->
+      <ion-row *ngFor="let item of items; let i = index" 
+         class="data-row"
+         [class.selected]="selectedRowIndex === i" 
+         (click)="onRowClick(i)">
+        <ion-col>{{ item.virtualChecking }}</ion-col>
+        <ion-col>{{ item.cost }}</ion-col>
+        <ion-col>{{ item.newBalance }}</ion-col>
+        <ion-col>{{ item.rewardBalance }}</ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+
+<div class="padding-section">
+  <ion-text class="ion-text-center ion-padding chart-description">
+      Use your reward points to qualify for cool prizes like Amazon gift cards.
+  </ion-text>
+</div>
+
+
+
+    <!-- Buttons -->
+    <ion-toolbar>
+      <div class="button-container">
+        <ion-button>Select Plan</ion-button>
+        <ion-button>Next</ion-button>
       </div>
-    
-    </ion-content>
-    
+    </ion-toolbar>
 
   </div>
-
 </ion-content>

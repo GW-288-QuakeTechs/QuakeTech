@@ -1,16 +1,20 @@
+/* Add styles for ion-toolbar explicitly */
+ion-header ion-toolbar, ion-content {
+  background-color: white !important;
+}
+
 .main-container {
-  padding: 20px; /* or whatever padding you prefer */
-  /* Add any other styles you want for the container here */
+  padding: 20px;
 }
 
 ion-header {
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  padding: 80px;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 10px 30px !important;
 }
 
-ion-toolbar {
-  padding: 10px;
+ion-header ion-title {
+  padding: 0px;
 }
 
 ion-title {
@@ -21,23 +25,44 @@ ion-title {
 }
 
 ion-text {
-
   padding: 10px;
 }
 
 ion-img {
   margin: 10px 0;
-  width: 85%; /* Adjust to the desired size. This example makes the image 70% of its original size. */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Needed for centering */
-  margin-left: auto; /* Center the image */
-  margin-right: auto; /* Center the image */
+  width: 85%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   padding: 10px;
 }
 
 .centered-buttons ion-button {
-    font-size: 15px; /* Increase font size, adjust as needed */
- 
+  font-size: 15px;
 }
 
+ion-toolbar {
+    --background: white !important;
+}
 
+ion-content {
+    --background: white !important;
+}
+
+body {
+    color: black !important;
+}
+
+ion-title, ion-text, h2, p {
+    color: black !important;
+}
+
+ion-item ion-button[color="primary"] {
+  --background: black !important;
+  --color: white !important; 
+}
+
+.header-menu-button {
+    --color: black !important;  
+}

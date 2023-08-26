@@ -1,20 +1,56 @@
-ion-title {
-  text-decoration: underline;
-}
+.buttons-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
-.title-section {
-  h2 {
-      font-weight: bold;
-      text-align: center;
-  }
-  p {
-      text-align: center;
-      font-weight: bold;
-      margin-top: 10px;  // You can adjust this for more spacing
+  ion-button {
+    margin-top: 20px;
   }
 }
 
-.chart-section {
-  margin-top: 20px;  // Adjust as needed
-  // Other chart-specific styles go here
+.button-container {
+  display: flex;
+  justify-content: center; /* Horizontally center the buttons */
+  gap: 20px; /* Space between the buttons */
+}
+
+
+
+.custom-title-left {
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  font-size: 1.5rem;  
+}
+
+.custom-title-left {
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;  
+}
+
+
+.chart-description {
+  padding: 10px 10px 30px 10px; 
+}
+
+
+
+/* Style for a selected row */
+ion-row.selected:not(.table-header) {
+  background-color: #e0e0e0;  
+}
+
+ion-row.data-row.selected {
+  background-color: #e0e0e0; 
+}
+
+
+ion-text {
+  margin-bottom: 30px; 
+}
+
+.padding-section {
+  padding-bottom: 60px; 
 }

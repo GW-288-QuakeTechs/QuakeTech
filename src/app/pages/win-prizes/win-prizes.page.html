@@ -1,18 +1,28 @@
+<ion-header>
+  <ion-toolbar style="background-color: white;">
+    <!-- Image in the center of the header -->
+    <ion-title>
+      <img src="assets/images/win.jpg" alt="Win" style="width: 250px; height: auto; vertical-align: middle;"/>
+    </ion-title>
 
+    <!-- Side Menu Button -->
+    <ion-buttons slot="end">
+      <ion-menu-button class="header-menu-button"></ion-menu-button>
 
-<ion-content [fullscreen]="true">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 
-  
+<ion-content [fullscreen]="true" style="background-color: white;">
 
   <div class="main-container">
 
     <ion-header collapse="condense">
-      <ion-toolbar>
+      <ion-toolbar style="background-color: white;">
         <ion-title size="large">winPrizes</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-img src="assets/images/win.jpg"></ion-img>
 
     <ion-title class="ion-text-center">ENTER DRAWING TO WIN</ion-title>
     
@@ -28,7 +38,7 @@
     <div class="centered-buttons">
       <div style="display: flex; justify-content: center;">
         <ion-item>
-          <ion-button color="primary" rounded>Enter Drawing</ion-button>
+          <ion-button color="secondary" rounded>Enter Drawing</ion-button>
         </ion-item>
     
         <ion-item>
@@ -36,8 +46,8 @@
         </ion-item>
       </div>
     </div>
-    
 
   </div>
 
 </ion-content>
+

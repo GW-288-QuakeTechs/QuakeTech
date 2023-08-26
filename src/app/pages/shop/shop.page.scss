@@ -25,7 +25,7 @@ ion-toolbar {
 }
 
 .container {
-  flex: 1;  /* Allow the container to take up any available space */
+  flex: 1;  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -35,10 +35,10 @@ ion-button {
   --background: #0000FF; /* Blue background */
   --color: #FFFFFF; /* White text */
 
-  width: 380px;  /* Adjusted width */
-  height: 60px;  /* Adjusted height */
+  width: 380px;  
+  height: 60px;  
 
-  font-size: 20px;  /* Adjust this value to make the text bigger or smaller */
+  font-size: 20px;  
   font-weight: bold;  /* Makes the text bold */
   
   /* Positioning */
@@ -48,8 +48,8 @@ ion-button {
   transform: translateX(-50%);
   width: 340px; 
 
-  /* Circular edges (rounded) */
-  border-radius: 30px; /* Adjust to your liking for desired rounding effect */
+  /* Circular edges */
+  border-radius: 30px; 
   display: flex;
   align-items: center;
   justify-content: center;
