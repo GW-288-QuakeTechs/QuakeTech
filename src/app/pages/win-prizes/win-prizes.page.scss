@@ -1,0 +1,68 @@
+/* Add styles for ion-toolbar explicitly */
+ion-header ion-toolbar, ion-content {
+  background-color: white !important;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+ion-header {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 10px 30px !important;
+}
+
+ion-header ion-title {
+  padding: 0px;
+}
+
+ion-title {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 20px;
+}
+
+ion-text {
+  padding: 10px;
+}
+
+ion-img {
+  margin: 10px 0;
+  width: 85%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+.centered-buttons ion-button {
+  font-size: 15px;
+}
+
+ion-toolbar {
+    --background: white !important;
+}
+
+ion-content {
+    --background: white !important;
+}
+
+body {
+    color: black !important;
+}
+
+ion-title, ion-text, h2, p {
+    color: black !important;
+}
+
+ion-item ion-button[color="primary"] {
+  --background: black !important;
+  --color: white !important; 
+}
+
+.header-menu-button {
+    --color: black !important;  
+}
