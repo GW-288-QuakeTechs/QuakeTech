@@ -25,6 +25,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dashboard/dashboard.module').then( m => m.DashboardPageModule )
 
   },
+
   {
     path: 'stop-ads',
     loadChildren: () => import('./pages/stop-ads/stop-ads.module').then( m => m.StopAdsPageModule)
@@ -32,7 +33,8 @@ const routes: Routes = [
   {
     path: 'shop',
     loadChildren: () => import('./pages/shop/shop.module').then( m => m.ShopPageModule)
-  }
+  },
+
 ];
 
 @NgModule({
