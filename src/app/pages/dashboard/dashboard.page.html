@@ -1,3 +1,5 @@
+<script src="https://code.ionicframework.com/ionicons/5.5.3/ionicons.js"></script>
+
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar color="primary">
@@ -8,33 +10,45 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-label> Click on goals to edit or delete. Use</ion-label>
-
-
+    <ion-list>
+      <ion-item lines="none">
+        <h6>Click on goals to edit or delete. Use</h6>
+      </ion-item>
+    </ion-list>
     <ion-list>
       <ion-item>
         <h6>Virtual Account Balances</h6>
       </ion-item>
-      <ion-item>
+      <ion-item button id="click-trigger">
         <ion-icon style="padding-left: 30px" name="checkmark-circle"></ion-icon>
         <ion-label style="padding-left: 5px">Checking</ion-label>
-        <ion-label style="text-align: right; font-weight: bold">$3,500</ion-label>
+        <ion-label style="text-align: right; font-weight: bold">$3500</ion-label>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content>
+              <ion-input type="number" id="chksAmt" style="color: black; text-align: center;" value="">
+
+              </ion-input>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+
       </ion-item>
-      <ion-item>
+      <ion-item button>
         <ion-avatar style="margin-left: 30px">
           <ion-img src="https://api.iconify.design/ion/logo-usd.svg"></ion-img>
         </ion-avatar>
         <ion-label style="margin-left: 15px">Savings</ion-label>
         <ion-label style="text-align: right; font-weight: bold">$5,500</ion-label>
       </ion-item>
-      <ion-item>
+      <ion-item button>
         <ion-avatar style="margin-left: 30px">
           <ion-img src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
         </ion-avatar>
         <ion-label style="margin-left: 15px">Investment</ion-label>
         <ion-label style="text-align: right; font-weight: bold">$12,000</ion-label>
       </ion-item>
-      <ion-item>
+      <ion-item button>
         <ion-avatar style="margin-left: 30px">
           <ion-img src="https://api.iconify.design/el/hand-up.svg?flip=horizontal"></ion-img>
         </ion-avatar>
@@ -56,101 +70,24 @@
         </ion-grid>
       </ion-item>
 
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">1.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Computer</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 73px;">$1,250</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
+      <ion-item *ngFor="let goal of goals; let i = index">
+        <ion-col size="auto" style="color: black;">{{ goal.list }}.</ion-col>
+        <ion-avatar>
+          <ion-img style="width: 40px; height: 40px"
+            src="https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
+        </ion-avatar>
+        <ion-col size="auto" style="color: black;">{{ goal.name }}</ion-col>
+        <ion-col style="text-align: end; font-weight: bold; color: black; padding-left: 100px;">
+          <span *ngIf="!goal.editing">${{ goal.amount }}</span>
+          <ion-input type="number" [(ngModel)]="goal.amount" *ngIf="goal.editing"
+            style="color: black; text-align: center;"></ion-input>
+          <ion-button id="hover-trigger" (click)="toggleEdit(i)">
+            {{ goal.editing ? 'Save' : 'Edit' }}
+          </ion-button>
+        </ion-col>
+        <ion-col style="color: black; text-align: end; font-weight: bold;">${{ goal.goal }}</ion-col>
       </ion-item>
 
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">2.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Travel</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 100px;">$950</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">3.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Home</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 100px;">$5,550</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">4.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Rainy Day</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 70px;">$1,950</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">5.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Wedding</ion-col>
-            <ion-col style=" text-align: end; font-weight: bold; margin-left: 80px;">$1,400</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">6.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Furnishings</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 60px;">$220</ion-col>
-            <ion-col>$3,500</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
 
       <ion-item>
         <ion-grid>
@@ -160,9 +97,9 @@
               <div style="margin-left: 15px; font-weight: bold;">Total Savings Goal</div>
             </ion-col>
             <ion-col style="text-align: end; font-weight: bold;">
-              <div>$11,270</div>
+              <div>${{ calculateTotalSavingsAmount() }}</div>
             </ion-col>
-            <ion-col>$3,500</ion-col>
+            <ion-col>${{ calculateTotalSavingsGoal() }}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
@@ -182,68 +119,24 @@
         </ion-grid>
       </ion-item>
 
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">1.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Retirement</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 30px;">$190,000</ion-col>
-            <ion-col>$450,000</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
 
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">2.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Education</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 55px;">$3,800</ion-col>
-            <ion-col>$55,000</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">3.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Start a Business</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 9px;">$15,000</ion-col>
-            <ion-col>$30,000</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-item>
-
-      <ion-item>
-        <ion-grid>
-          <ion-row>
-            <ion-col size="auto">4.
-              <ion-avatar style="margin-left: 35px; padding-top: 32px; margin-top: -60px">
-                <ion-img style="width: 40px; height: 40px"
-                  src=" https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
-              </ion-avatar>
-            </ion-col>
-            <ion-col size="auto" style="margin-left: -30px;">Legacy</ion-col>
-            <ion-col style="text-align: end; font-weight: bold; margin-left: 70px;">$23,000</ion-col>
-            <ion-col>$15,000</ion-col>
-          </ion-row>
-        </ion-grid>
+      <ion-item *ngFor="let investmentgoals of investmentgoals; let i = index">
+        <ion-col size="auto" style="color: black;">{{investmentgoals.list}}.
+        </ion-col>
+        <ion-avatar>
+          <ion-img style="width: 40px; height: 40px"
+            src="https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
+        </ion-avatar>
+        <ion-col size="auto" style="color: black;">{{ investmentgoals.name }}</ion-col>
+        <ion-col style="text-align: end; font-weight: bold; color: black; padding-left: 100px;">
+          <span *ngIf="!investmentgoals.editing">${{ investmentgoals.amount }}</span>
+          <ion-input type="number" [(ngModel)]="investmentgoals.amount" *ngIf="investmentgoals.editing"
+            style="color: black; text-align: center;"></ion-input>
+          <ion-button id="hover-trigger" (click)="toggleEdit(i)">
+            {{ investmentgoals.editing ? 'Save' : 'Edit' }}
+          </ion-button>
+        </ion-col>
+        <ion-col style="color: black; text-align: end; font-weight: bold;">${{ investmentgoals.goal }}</ion-col>
       </ion-item>
 
       <ion-item>
