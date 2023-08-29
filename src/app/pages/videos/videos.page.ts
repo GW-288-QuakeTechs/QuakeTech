@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular'; // Import NavController
+
+
 
 @Component({
   selector: 'app-videos',
@@ -22,19 +25,31 @@ export class VideosPage implements OnInit {
       paragraph: 'When you save money, you also save your merchandise in a virtual closet for a cooling off period. If you cant live without it, you can complete your purchase after five days.',
       path: 'assets/images/Video3.png'
     },
-  
+
   ];
   currentImageIndex = 0;
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {
+    // Other constructor logic
+  }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    // Reset currentImageIndex to 0 when entering the page
+    this.currentImageIndex = 0;
+  }
+
   nextImage() {
     this.currentImageIndex++;
+
     if (this.currentImageIndex >= this.images.length) {
-      this.currentImageIndex = 0; 
+      this.navigateToDashboardPage();
     }
+  }
+
+  private navigateToDashboardPage() {
+    this.navCtrl.navigateForward('/dashboard'); // Navigate to the DashboardPage
   }
 }
