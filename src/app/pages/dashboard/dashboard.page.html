@@ -15,6 +15,7 @@
         <h6>Click on goals to edit or delete. Use</h6>
       </ion-item>
     </ion-list>
+
     <ion-list>
       <ion-item>
         <h6>Virtual Account Balances</h6>
@@ -27,12 +28,10 @@
           <ng-template>
             <ion-content>
               <ion-input type="number" id="chksAmt" style="color: black; text-align: center;" value="">
-
               </ion-input>
             </ion-content>
           </ng-template>
         </ion-popover>
-
       </ion-item>
       <ion-item button>
         <ion-avatar style="margin-left: 30px">
@@ -61,106 +60,99 @@
       <ion-item>
         <ion-grid [fixed]="true">
           <ion-row>
-            <ion-col size="auto" style="font-weight: bold;">Savings Goals</ion-col>
-            <ion-col></ion-col>
-            <ion-col></ion-col>
-            <ion-col style="font-weight: bold;">Savings To Date</ion-col>
-            <ion-col style="font-weight: bold;">Savings Goal</ion-col>
+            <ion-col size="auto" style="font-weight: bold; color: black; width: 50px; text-align: end;">Savings
+              Goals</ion-col>
+            <ion-col style="font-weight: bold; color: black; width: 50px; text-align: end;">Savings To
+              Date</ion-col>
+            <ion-col style="font-weight: bold; color: black; width: 50px; text-align: end;">Savings
+              Goal</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
 
-      <ion-item *ngFor="let goal of goals; let i = index">
-        <ion-col size="auto" style="color: black;">{{ goal.list }}.</ion-col>
+      <ion-item *ngFor="let goal of goals; let i = index" (click)="openEditModal('savings', i)">
+        <ion-col size="auto" style="color: black; width: 50px; text-align: end;">{{ goal.list }}.</ion-col>
         <ion-avatar>
           <ion-img style="width: 40px; height: 40px"
             src="https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
         </ion-avatar>
-        <ion-col size="auto" style="color: black;">{{ goal.name }}</ion-col>
-        <ion-col style="text-align: end; font-weight: bold; color: black; padding-left: 100px;">
+        <ion-col size="auto" style="color: black; width: 100px; text-align: end;">{{ goal.name }}</ion-col>
+        <ion-col style="text-align: end; font-weight: bold; color: black; width: 120px;">
           <span *ngIf="!goal.editing">${{ goal.amount }}</span>
           <ion-input type="number" [(ngModel)]="goal.amount" *ngIf="goal.editing"
-            style="color: black; text-align: center;"></ion-input>
-          <ion-button id="hover-trigger" (click)="toggleEdit(i)">
-            {{ goal.editing ? 'Save' : 'Edit' }}
-          </ion-button>
+            style="color: black; text-align: end;"></ion-input>
         </ion-col>
-        <ion-col style="color: black; text-align: end; font-weight: bold;">${{ goal.goal }}</ion-col>
+        <ion-col style="color: black; text-align: end; font-weight: bold; width: 50px;">${{ goal.goal }}</ion-col>
       </ion-item>
-
 
       <ion-item>
         <ion-grid>
           <ion-row>
             <ion-col></ion-col>
+
             <ion-col size="auto">
-              <div style="margin-left: 15px; font-weight: bold;">Total Savings Goal</div>
+              <div style="font-weight: bold; color: black; text-align: start;">Total Savings Goal
+              </div>
             </ion-col>
-            <ion-col style="text-align: end; font-weight: bold;">
+            <ion-col style="font-weight: bold; color: black; width: 50px; text-align: end;">
               <div>${{ calculateTotalSavingsAmount() }}</div>
             </ion-col>
             <ion-col>${{ calculateTotalSavingsGoal() }}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
-
     </ion-list>
+
+
+
 
     <ion-list style="margin-top: 40px;">
       <ion-item>
         <ion-grid [fixed]="true">
           <ion-row>
-            <ion-col size="auto" style="font-weight: bold;">Investment Goals</ion-col>
-            <ion-col></ion-col>
-            <ion-col></ion-col>
-            <ion-col style="font-weight: bold;">Invest To Date</ion-col>
-            <ion-col style="font-weight: bold;">Invest Goal</ion-col>
+            <ion-col size="auto" style="font-weight: bold; color: black; width: 50px; text-align: end;">Investment
+              Goals</ion-col>
+            <ion-col style="font-weight: bold; color: black; width: 50px; text-align: end;">Invest To Date</ion-col>
+            <ion-col style="font-weight: bold; color: black; width: 50px; text-align: end;">Invest Goal</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
 
-
-      <ion-item *ngFor="let investmentgoals of investmentgoals; let i = index">
-        <ion-col size="auto" style="color: black;">{{investmentgoals.list}}.
-        </ion-col>
+      <ion-item *ngFor="let investmentgoals of investmentgoals; let i = index" (click)="openEditModal('investment', i)">
+        <ion-col size="auto" style="color: black; width: 50px; text-align: end;">{{ investmentgoals.list }}.</ion-col>
         <ion-avatar>
           <ion-img style="width: 40px; height: 40px"
             src="https://api.iconify.design/mdi/alphabet-i-circle.svg"></ion-img>
         </ion-avatar>
-        <ion-col size="auto" style="color: black;">{{ investmentgoals.name }}</ion-col>
-        <ion-col style="text-align: end; font-weight: bold; color: black; padding-left: 100px;">
+        <ion-col size="auto" style="color: black; width: 100px; text-align: end;">{{ investmentgoals.name }}</ion-col>
+        <ion-col style="text-align: end; font-weight: bold; color: black; width: 120px;">
           <span *ngIf="!investmentgoals.editing">${{ investmentgoals.amount }}</span>
           <ion-input type="number" [(ngModel)]="investmentgoals.amount" *ngIf="investmentgoals.editing"
-            style="color: black; text-align: center;"></ion-input>
-          <ion-button id="hover-trigger" (click)="toggleEdit(i)">
-            {{ investmentgoals.editing ? 'Save' : 'Edit' }}
-          </ion-button>
+            style="color: black; text-align: end;"></ion-input>
         </ion-col>
-        <ion-col style="color: black; text-align: end; font-weight: bold;">${{ investmentgoals.goal }}</ion-col>
+        <ion-col style="color: black; text-align: end; font-weight: bold; width: 100px;">${{ investmentgoals.goal
+          }}</ion-col>
       </ion-item>
-
       <ion-item>
         <ion-grid>
           <ion-row>
             <ion-col></ion-col>
             <ion-col size="auto">
-              <div style="margin-left: 15px; font-weight: bold;">Total Savings Goal</div>
+              <div style="margin-left: 15px; font-weight: bold;">Total Invest Goal</div>
             </ion-col>
             <ion-col style="text-align: end; font-weight: bold;">
-              <div>$231,800</div>
+              <div>${{ calculateTotalinvestmentAmount() }}</div>
             </ion-col>
-            <ion-col>$685,000</ion-col>
+            <ion-col>${{ calculateTotalinvestmentGoal() }}</ion-col>
           </ion-row>
         </ion-grid>
       </ion-item>
-
     </ion-list>
 
     <ion-list>
       <ion-item>
         <h6>Photo/Video Library</h6>
       </ion-item>
-
       <ion-item>
         <ion-grid [fixed]="true">
           <ion-row>
@@ -190,7 +182,6 @@
         </ion-grid>
       </ion-item>
     </ion-list>
-
 
   </ion-content>
 </div>

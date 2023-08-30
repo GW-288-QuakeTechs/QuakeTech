@@ -1,0 +1,19 @@
+<ion-content>
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>Edit {{ itemType | titlecase }} Goal</ion-title>
+            <ion-buttons slot="end">
+                <ion-button (click)="closeModal()">Cancel</ion-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+
+    <ion-item>
+        <ion-label position="stacked">New Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="updatedAmount" style="color: black; text-align: center;"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" (click)="saveChanges()">Save Changes</ion-button>
+
+</ion-content>
