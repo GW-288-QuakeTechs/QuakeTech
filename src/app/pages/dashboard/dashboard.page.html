@@ -70,7 +70,7 @@
         </ion-grid>
       </ion-item>
 
-      <ion-item *ngFor="let goal of goals; let i = index" (click)="openEditModal('savings', i)">
+      <ion-item *ngFor="let goal of goals; let i = index" (click)="openEditPopup('savings', i)">
         <ion-col size="auto" style="color: black; width: 50px; text-align: end;">{{ goal.list }}.</ion-col>
         <ion-avatar>
           <ion-img style="width: 40px; height: 40px"
@@ -117,8 +117,8 @@
           </ion-row>
         </ion-grid>
       </ion-item>
-
-      <ion-item *ngFor="let investmentgoals of investmentgoals; let i = index" (click)="openEditModal('investment', i)">
+      <ion-item *ngFor="let investmentgoals of investmentgoals; let i = index"
+        (click)="openEditPopupInvest('investment', i)">
         <ion-col size="auto" style="color: black; width: 50px; text-align: end;">{{ investmentgoals.list }}.</ion-col>
         <ion-avatar>
           <ion-img style="width: 40px; height: 40px"

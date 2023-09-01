@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { EditModalComponent } from './edit-modal.component';
+import { AlertController } from '@ionic/angular';
 
 
 @Component({
@@ -10,53 +9,107 @@ import { EditModalComponent } from './edit-modal.component';
 })
 export class DashboardPage implements OnInit {
 
-  goals: {list: number; name: string; amount: number; goal: number; editing: boolean }[] = [];
-  investmentgoals: {list: number; name: string; amount: number; goal: number; editing: boolean }[] = [];
+  goals: { list: number; name: string; amount: number; goal: number; editing: boolean }[] = [];
+  investmentgoals: { list: number; name: string; amount: number; goal: number; editing: boolean }[] = [];
 
+  //private modalController: ModalController
 
-
-  constructor(private modalController: ModalController) { 
+  constructor(private alertController: AlertController) {
     // Initialize goals with default values and editing status
     this.goals = [
-      {list: 1, name: 'Computer', amount: 1250, goal: 3500, editing: false },
-      {list: 2, name: 'Travel', amount: 950, goal: 3500, editing: false },
-      {list: 3, name: 'Home', amount: 5550, goal: 3500, editing: false },
-      {list: 4, name: 'Rainy Day', amount: 1950, goal: 3500, editing: false },
-      {list: 5, name: 'Wedding', amount: 1400, goal: 3500, editing: false },
-      {list: 6, name: 'Furnishings', amount: 220, goal: 3500, editing: false },
+      { list: 1, name: 'Computer', amount: 1250, goal: 3500, editing: false },
+      { list: 2, name: 'Travel', amount: 950, goal: 3500, editing: false },
+      { list: 3, name: 'Home', amount: 5550, goal: 3500, editing: false },
+      { list: 4, name: 'Rainy Day', amount: 1950, goal: 3500, editing: false },
+      { list: 5, name: 'Wedding', amount: 1400, goal: 3500, editing: false },
+      { list: 6, name: 'Furnishings', amount: 220, goal: 3500, editing: false },
     ];
     this.investmentgoals = [
-      {list: 1, name: 'Retirement', amount: 190000, goal: 450000, editing: false },
-      {list: 2, name: 'Education', amount: 3800, goal: 55000, editing: false },
-      {list: 3, name: 'Start a Business', amount: 15000, goal: 30000, editing: false },
-      {list: 4, name: 'Legacy', amount: 1950, goal: 15000, editing: false },
+      { list: 1, name: 'Retirement', amount: 190000, goal: 450000, editing: false },
+      { list: 2, name: 'Education', amount: 3800, goal: 55000, editing: false },
+      { list: 3, name: 'Start a Business', amount: 15000, goal: 30000, editing: false },
+      { list: 4, name: 'Legacy', amount: 1950, goal: 15000, editing: false },
     ];
   }
 
-  async openEditModal(itemType: string, index: number) {
-    const modal = await this.modalController.create({
-      component: EditModalComponent,
-      componentProps: {
-        itemType: itemType,
-        index: index
-      },
-      cssClass: 'edit-modal' // Apply the custom CSS class
+  async openEditPopup(itemType: string, index: number) {
+    const alert = await this.alertController.create({
+      header: `Edit ${itemType} Goal`,
+      inputs: [
+        {
+          name: 'updatedAmount',
+          type: 'number',
+          value: this.goals[index].amount.toString(),
+          placeholder: 'New Amount',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Edit canceled');
+          },
+        },
+        {
+          text: 'Save Changes',
+          handler: (data) => {
+            const newAmount = parseFloat(data.updatedAmount);
+            
+            if (!isNaN(newAmount)) {
+              if (itemType === 'savings') {
+                this.goals[index].amount = newAmount; // Update the amount in the goals array
+              } else if (itemType === 'investment') {
+                this.investmentgoals[index].amount = newAmount; // Update the amount in the investmentgoals array
+              }
+            }
+          },
+        },
+      ],
     });
-  
-    await modal.present();
-  
-    const { data } = await modal.onWillDismiss();
-  
-    // If data contains updated information, update the goals array
-    if (data && data.updatedItem) {
-      const updatedItem = data.updatedItem;
-      if (updatedItem.itemType === 'savings') {
-        this.goals[updatedItem.index].amount = updatedItem.updatedAmount;
-      } else if (updatedItem.itemType === 'investment') {
-        this.investmentgoals[updatedItem.index].amount = updatedItem.updatedAmount;
-      }
-    }
+
+    await alert.present();
   }
+
+  async openEditPopupInvest(itemType: string, index: number) {
+    const alert = await this.alertController.create({
+      header: `Edit ${itemType} Goal`,
+      inputs: [
+        {
+          name: 'updatedAmount',
+          type: 'number',
+          value: this.investmentgoals[index].amount.toString(),
+          placeholder: 'New Amount',
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Edit canceled');
+          },
+        },
+        {
+          text: 'Save Changes',
+          handler: (data) => {
+            const newAmount = parseFloat(data.updatedAmount);
+            
+            if (!isNaN(newAmount)) {
+              if (itemType === 'savings') {
+                this.goals[index].amount = newAmount; // Update the amount in the goals array
+              } else if (itemType === 'investment') {
+                this.investmentgoals[index].amount = newAmount; // Update the amount in the investmentgoals array
+              }
+            }
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
 
   toggleEdit(index: number, section: string) {
     if (section === 'savings') {
@@ -105,7 +158,7 @@ export class DashboardPage implements OnInit {
   }
 
 
-  
+
   ngOnInit() {
   }
 }
