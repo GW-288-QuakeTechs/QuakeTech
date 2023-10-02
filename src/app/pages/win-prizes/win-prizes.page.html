@@ -1,53 +1,34 @@
-<ion-header>
-  <ion-toolbar style="background-color: white;">
-    <!-- Image in the center of the header -->
-    <ion-title>
-      <img src="assets/images/win.jpg" alt="Win" style="width: 250px; height: auto; vertical-align: middle;"/>
-    </ion-title>
-
-    <!-- Side Menu Button -->
-    <ion-buttons slot="end">
-      <ion-menu-button class="header-menu-button"></ion-menu-button>
-
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar style="background-color: white;">
+  <img src="assets/images/win.jpg" alt="Win" style="width: auto; height: auto; vertical-align: middle;" />
+  <ion-buttons slot="end">
+    <ion-menu-button class="header-menu-button"></ion-menu-button>
+  </ion-buttons>
+</ion-toolbar>
 
 <ion-content [fullscreen]="true" style="background-color: white;">
 
+  <h2 class="ion-text-center">ENTER DRAWING TO WIN</h2>
+
   <div class="main-container">
 
-    <ion-header collapse="condense">
-      <ion-toolbar style="background-color: white;">
-        <ion-title size="large">winPrizes</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-
-    <ion-title class="ion-text-center">ENTER DRAWING TO WIN</ion-title>
-    
     <ion-img src="assets/images/Amazon.jpg"></ion-img>
 
     <ion-text>
       <h2>Entry Deadline: Sept. 12. 2023 </h2>
       <h2>Entry Deadline: Sept. 15, 2023 </h2>
       <p>To enter drawing, you must have at least 1500 reward points. Drawings are held weekly.
-      Winner(s) will be notified by email.</p>
+        Winner(s) will be notified by email.</p>
     </ion-text>
 
     <div class="centered-buttons">
-      <div style="display: flex; justify-content: center;">
+      <div style=" display: flex; justify-content: center;">
         <ion-item>
           <ion-button color="secondary" rounded>Enter Drawing</ion-button>
         </ion-item>
-    
         <ion-item>
           <ion-button color="secondary" rounded>Skip Drawing</ion-button>
         </ion-item>
       </div>
     </div>
-
   </div>
-
 </ion-content>
-

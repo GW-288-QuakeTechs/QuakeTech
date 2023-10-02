@@ -7,3 +7,11 @@ ion-select::part(text) {
 
 }
 
+ion-content::part(scroll){
+  background-color: white;
+}
+
+ion-item::part(native){
+  background-color: white;
+  color: black;
+}

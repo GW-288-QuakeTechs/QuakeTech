@@ -54,3 +54,12 @@ ion-text {
 .padding-section {
   padding-bottom: 60px; 
 }
+
+ion-content::part(scroll){
+  background-color: white;
+  color: black;
+}
+
+ion-toolbar toolbar-background{
+  background-color: white;
+}

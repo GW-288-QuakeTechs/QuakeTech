@@ -15,6 +15,5 @@ export class AppComponent {
     { title: 'loader', url: '/loader', icon: 'film-outline' },
     { title: 'signup', url: '/signup', icon: 'film-outline' },
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
   constructor() {}
 }

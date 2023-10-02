@@ -58,6 +58,10 @@ ion-title, ion-text, h2, p {
     color: black !important;
 }
 
+.ion-text-center{
+  font-weight: bold;
+}
+
 ion-item ion-button[color="primary"] {
   --background: black !important;
   --color: white !important; 
@@ -65,4 +69,8 @@ ion-item ion-button[color="primary"] {
 
 .header-menu-button {
     --color: black !important;  
+}
+
+ion-item::part(native){
+  background-color: white;
 }
