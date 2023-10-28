@@ -1,14 +1,16 @@
+// Import necessary Angular modules and components
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular'; // Import NavController
 
 
-
+// Decorator to configure the component
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.page.html',
   styleUrls: ['./videos.page.scss'],
 })
 export class VideosPage implements OnInit {
+   // Array of image objects, each representing a video
   images = [
     {
       description: 'Video 1 of 3. How Do I Save Money?',
@@ -27,29 +29,36 @@ export class VideosPage implements OnInit {
     },
 
   ];
+  // Initialize the index of the current image
   currentImageIndex = 0;
 
   constructor(private navCtrl: NavController) {
+    // Constructor for the component, receives NavController for navigation
     // Other constructor logic
   }
 
   ngOnInit() {
+     // Initialization method, executed when the component is initialized
   }
+  
 
   ionViewWillEnter() {
+     // Lifecycle hook - Reset currentImageIndex to 0 when entering the page
     // Reset currentImageIndex to 0 when entering the page
     this.currentImageIndex = 0;
   }
 
   nextImage() {
+      // Function to navigate to the next image
     this.currentImageIndex++;
-
+ // Check if we have reached the end of the images array
     if (this.currentImageIndex >= this.images.length) {
       this.navigateToDashboardPage();
     }
   }
 
   private navigateToDashboardPage() {
+     // Private method to navigate to the DashboardPage using NavController
     this.navCtrl.navigateForward('/dashboard'); // Navigate to the DashboardPage
   }
 }
