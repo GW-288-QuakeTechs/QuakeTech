@@ -1,3 +1,4 @@
+<!-- Ion-header: The header section of the page -->
 <ion-header>
   <ion-toolbar style="background-color: white;">
     <!-- Image in the center of the header -->
@@ -12,22 +13,29 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Ion-content: The main content section of the page -->
 <ion-content [fullscreen]="true" class="ion-padding">
   <div class="main-container">
+        <!-- Title: The Smart Way To Shop -->
     <h2 class="custom-title-center">
       The Smart Way To Shop
     </h2>
 
     <h2 class="custom-title-center">
+          <!-- Title: The Fun Way To Save -->
       The Fun Way To Save
     </h2>
 
     <div class="image-container">
+        <!-- Dynamic image using src and alt attributes -->
       <img [src]="images[currentImageIndex].path" alt="{{ images[currentImageIndex].description }}" class="image">
 
+           <!-- Image description -->
       <p class="image-description">{{ images[currentImageIndex].description }}</p>
+            <!-- Image paragraph -->
       <p class="image-paragraph">{{ images[currentImageIndex].paragraph }}</p>
 
+           <!-- Centered button -->
       <div class="centered-buttons">
         <ion-button size="default" (click)="nextImage()">Next</ion-button>
       </div>

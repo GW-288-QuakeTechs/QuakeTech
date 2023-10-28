@@ -3,25 +3,30 @@ ion-header ion-toolbar, ion-content {
     background-color: white !important;
   }
   
+  /* Style for the main container with padding */
   .main-container {
     padding: 20px;
   }
   
+  /* Style for the ion-header */
   ion-header {
     background-color: transparent !important;
     border: none !important;
     padding: 10px 30px !important;
   }
   
+  /* Remove padding from ion-title in ion-header */
   ion-header ion-title {
     padding: 0px;
   }
 
+/* Center-align custom titles with top margin */
   .custom-title-center {
     text-align: center;
     margin-top: 20px; /* Adjust this value as needed */
   }
   
+  /* Style for ion-title elements */
   ion-title {
     font-size: 18px;
     font-weight: bold;
@@ -29,10 +34,12 @@ ion-header ion-toolbar, ion-content {
     padding: 20px;
   }
   
+  /* Add padding to ion-text elements */
   ion-text {
     padding: 10px;
   }
   
+  /* Style for ion-img elements */
   ion-img {
     margin: 10px 0;
     width: 85%;
@@ -43,6 +50,7 @@ ion-header ion-toolbar, ion-content {
     padding: 10px;
   }
   
+  /* Center-align buttons with top margin */
   .centered-buttons {
     display: flex;
     justify-content: center;
@@ -50,6 +58,7 @@ ion-header ion-toolbar, ion-content {
     
   }
   
+  /* Override background color for ion-toolbar and ion-content */
   ion-toolbar {
       --background: white !important;
   }
@@ -57,7 +66,8 @@ ion-header ion-toolbar, ion-content {
   ion-content {
       --background: white !important;
   }
-  
+
+  /* Set text color to black for body and specific elements */
   body {
       color: black !important;
   }
@@ -66,11 +76,13 @@ ion-header ion-toolbar, ion-content {
       color: black !important;
   }
   
+  /* Style for primary ion-button with black background and white text */
   ion-item ion-button[color="primary"] {
     --background: black !important;
     --color: white !important; 
   }
   
+  /* Style for the header menu button */
   .header-menu-button {
       --color: black !important;  
   }
