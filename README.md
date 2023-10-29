@@ -1,4 +1,4 @@
-# LongD - Long Distance Travel App
+# SaveUp - Personal Finance App
 
 LongD is a mobile app built with HTML, CSS, and the Ionic framework that offers on-demand transportation services. This README provides information about fixes and versions in the app.
 
